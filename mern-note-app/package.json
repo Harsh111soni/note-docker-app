@@ -1,0 +1,13 @@
+{
+  "name": "mern-note-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ..\\client && npm install",
+    "dev": "concurrently \"cd backend && npm run dev\" \"cd client && npm run dev\"",
+    "start": "cd backend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
