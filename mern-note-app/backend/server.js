@@ -15,7 +15,8 @@ app.use('/api/auth', authRouter);
 app.use('/api/notes', notesRouter);
 
 const MONGODB_URI = 'mongodb+srv://harsh321:harsh@cluster0.ic5ngw0.mongodb.net/notes-db?retryWrites=true&w=majority';
-const JWT_SECRET = 'harsh';
+// const JWT_SECRET = 'harsh';
+process.env.JWT_SECRET = 'harsh';
 
 if (!MONGODB_URI) {
   console.error('Missing MONGODB_URI in backend/.env');
