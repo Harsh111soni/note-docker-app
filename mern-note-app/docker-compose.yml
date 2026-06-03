@@ -1,0 +1,29 @@
+#If we are connecting mongodb with localhost then we needed all these comment code otherwise her ei have connected with altas 
+
+version: '3.8'
+services:
+  note-app:
+    image: n:v1.0.0
+    container_name: note_container
+    ports:
+      - "5200:5000"
+    environment:
+      # await mongoose.connect('mongodb+srv://harsh321:harsh@cluster0.ic5ngw0.mongodb.net/vegetable_order_app
+      MONGO_URI: "mongodb+srv://harsh321:harsh@cluster0.ic5ngw0.mongodb.net/notes-db?retryWrites=true&w=majority"
+    networks:
+      - note-networks
+    # depends_on:
+    #   - mongodb
+  # mongodb:
+  #   image: mongo:latest
+  #   container_name: mongo_note
+  #   ports:
+  #     - "27017:27017"
+  #   networks:
+  #     - note-networks
+    
+networks:
+  note-networks:
+    driver: bridge
+
+
