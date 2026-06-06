@@ -1,0 +1,31 @@
+namespace:
+  name: notes-app
+
+replicas: 2
+
+containers:
+  name: note-app-container
+  image: harsh0soni/self:v1.0.0
+  port: 5000
+
+service:
+  name: note-service
+  type: LoadBalancer
+  port: 80
+  targetPort: 5000
+
+configMap:
+  name: note-config
+
+  data:
+    MONGO_URI: mongodb+srv://harsh321:harsh@cluster0.ic5ngw0.mongodb.net/notes-db?retryWrites=true&w=majority
+
+secret:
+  name: note-secret
+  type: Opaque
+
+  data:
+    ADMIN_USERNAME: YWRtaW4=
+    ADMIN_PASSWORD: MTBARGVtaW5QVw==
+    SESSION_SECRET: eW91clN1cGVyU2VjcmV0U2Vzc2lvbktleQ==
+    JWT_SECRET: harsh
